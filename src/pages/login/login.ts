@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CadastroPage } from '../cadastro/cadastro';
+import { LoginProvider } from '../../Providers/services/loginService';
 
 /**
  * Generated class for the LoginPage page.
@@ -18,10 +19,11 @@ export class LoginPage {
 
   public loginDados = {
     email: null,
-    senha: null
+    password: null
   }
 
-  constructor(public navCtrl: NavController, 
+  constructor(public navCtrl: NavController,
+    public LoginProvider: LoginProvider, 
     public navParams: NavParams) {
   }
 
@@ -31,6 +33,18 @@ export class LoginPage {
 
   cadastro():void{
     this.navCtrl.push(CadastroPage);
+  }
+
+  entrar():void{
+    console.log('entrou')
+    this.LoginProvider.postLogin('/auth/authenticate', this.loginDados)
+    .then(dadosLogin => {
+      
+      console.log(JSON.parse(dadosLogin["_body"])); // data received by server 
+      
+    }, (err) => {
+      console.log("Erro", err);
+  });
   }
 
 }

@@ -8,6 +8,8 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { CadastroPage } from '../pages/cadastro/cadastro';
+import { LoginProvider } from '../Providers/services/loginService';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { CadastroPage } from '../pages/cadastro/cadastro';
   ],
   imports: [
     BrowserModule,
+    HttpModule, 
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -30,6 +33,7 @@ import { CadastroPage } from '../pages/cadastro/cadastro';
   providers: [
     StatusBar,
     SplashScreen,
+    LoginProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
