@@ -1,0 +1,26 @@
+<ion-content padding> 
+  <div class="content">
+    <div class="img">
+      <img src="assets/imgs/logo.png">
+    </div>
+    <div class="inputs">
+      <ion-list>
+        <ion-item no-lines>
+          <ion-input id="email" type="email" placeholder="Email" [(ngModel)]="loginDados.email" autofocus required></ion-input>
+        </ion-item>
+      
+        <ion-item no-lines>
+          <ion-input id="password" type="password" placeholder="Senha" [(ngModel)]="loginDados.senha" required></ion-input>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div class="btn">
+      <button id="btn_entrar" (click)="entrar()"ion-button round full >Entrar</button>
+    </div>
+    <div class="text">
+      <ion-label id="label_cadastro" (click)="cadastro()"> Não possui conta? Cadastre-se! </ion-label>
+    </div>
+  </div>
+   
+    
+</ion-content>
